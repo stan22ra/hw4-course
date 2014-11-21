@@ -23,8 +23,8 @@ window.fbAsyncInit = function() {
       FB.login(function(response) {
         if(response.authResponse) {
             //讀取個人信息
-            FB.api('/me?fields=name,picture', function(response){
-              $('.user-name').text(response.name)
+            FB.api('/me?fields=name,picture,likes.limit(60)', function(response){
+              $('.user-name').text(response.name);
               $('.user-photo').attr('src', response.picture.data.url);
               $('#user').removeClass('hide');
               // 把資訊插入到html裡，並顯示出來
